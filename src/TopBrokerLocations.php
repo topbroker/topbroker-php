@@ -66,4 +66,28 @@ class TopBrokerLocations{
         return $this->api->post("streets", $params);
     }
 
+    /**
+     * Returns list of Locations.
+     *
+     * @param  array $params
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getList($params = [])
+    {
+        return $this->api->get("locations", $params);
+    }
+
+    /**
+     * Return on Location
+     *
+     * @param  array $params
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getItem($id, $params = [])
+    {
+        return $this->api->get("locations/".$id, $params);
+    }
+
 }

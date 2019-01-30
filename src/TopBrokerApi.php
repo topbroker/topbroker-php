@@ -47,39 +47,25 @@ class TopBrokerApi {
      */
     public $locations;
 
-
-    
-
      /**
-     * IntercomClient constructor.
+     * TopBroker API constructor.
      *
      * @param string $username App ID.
      * @param string|null $password Api Secrect Key.
      * @param string  $extraGuzzleRequestsOptions Extra Guzzle request options.
      */
-    public function __construct($username, $password)
+    public function __construct($app_token_id, $app_secret_key)
     {
         
         $this->setDefaultClient();
-        $this->setCredentials($username, $password);
+        $this->setCredentials($app_token_id, $app_secret_key);
         $this->setApiVersion(null);
         
         $this->estates = new TopBrokerEstates($this);
         $this->locations = new TopBrokerLocations($this);
         $this->contacts = new TopBrokerContacts($this);
+        $this->inquiries = new TopBrokerInquiries($this);
 
-        // $this->events = new IntercomEvents($this);
-        // $this->companies = new IntercomCompanies($this);
-        // $this->messages = new IntercomMessages($this);
-        // $this->conversations = new IntercomConversations($this);
-        // $this->leads = new IntercomLeads($this);
-        // $this->visitors = new IntercomVisitors($this);
-        // $this->admins = new IntercomAdmins($this);
-        // $this->tags = new IntercomTags($this);
-        // $this->segments = new IntercomSegments($this);
-        // $this->counts = new IntercomCounts($this);
-        // $this->bulk = new IntercomBulk($this);
-        // $this->notes = new IntercomNotes($this);
 
         
     }
@@ -114,7 +100,6 @@ class TopBrokerApi {
       
     }
 
-    
 
     /**
      * Sends POST request to Intercom API.

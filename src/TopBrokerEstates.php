@@ -95,6 +95,79 @@ class TopBrokerEstates{
         return $this->api->get("estate_attributes/".$type, $options);
     }
 
+     /**
+     * Assign Estate to Contact
+     *
+     * @param  integer $id
+     * @options mixed $options
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function assignEstate($id, $options = [])
+    {
+        if(!(int)$options['estate_id']){
+            throw new Exception("estate_id must be provided as ['estate_id' => 1234]");
+        }
+        return $this->api->put($this->buildPath($id . '/assign_estate/' . $options['estate_id'] ), []);
+    }
+
+    /**
+     * Returns assigned Estate List to Contact
+     *
+     * @param  integer $id
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getAssignedEstateList($id, $options = [])
+    {
+        return $this->api->get($this->buildPath($id. '/assigned_estates'), $options);
+    }
+
+     /**
+     * Assign Contact to Contact
+     *
+     * @param  integer $id
+     * @options mixed $options
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function assignContact($id, $options = [])
+    {
+        if(!(int)$options['contact_id']){
+            throw new Exception("contact_id must be provided as ['contact_id' => 1234]");
+        }
+        return $this->api->put($this->buildPath($id . '/assign_contact/' . $options['contact_id'] ), []);
+    }
+
+    /**
+     * Returns assigned Contact List to Contact
+     *
+     * @param  integer $id
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getAssignedContactList($id, $options = [])
+    {
+        return $this->api->get($this->buildPath($id. '/assigned_contacts'), $options);
+    }
+
+    /**
+     * Change Owner (User) of Contact
+     *
+     * @param  integer $id
+     * @options mixed $options
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function changeOwner($id, $options = [])
+    {
+        if(!(int)$options['user_id']){
+            throw new Exception("user_id must be provided as ['user_id' => 1234]");
+        }
+        return $this->api->put($this->buildPath($id . '/change_owner/' . $options['user_id'] ), []);
+    }
+
+
     /**
      * Returns full endpoint path
      *

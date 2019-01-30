@@ -1,7 +1,7 @@
 <?php
 namespace TopBroker;
 
-class TopBrokerContacts{
+class TopBrokerInquiries{
 
     /**
      * @var API
@@ -12,7 +12,7 @@ class TopBrokerContacts{
     /**
     * @var endpoint
     */
-    private $endpoint = 'contacts';
+    private $endpoint = 'inquiries';
 
 
     /**
@@ -26,7 +26,7 @@ class TopBrokerContacts{
     }
 
     /**
-     * Returns list of Contacts.
+     * Returns list of Inquiries.
      *
      * @param  array $params
      * @return mixed
@@ -38,7 +38,7 @@ class TopBrokerContacts{
     }
 
     /**
-     * Returns list of Contacts.
+     * Returns list of Inquiries.
      *
      * @param  array $params
      * @return mixed
@@ -50,7 +50,7 @@ class TopBrokerContacts{
     }
 
     /**
-     * Returns list of Contact Custom Fields.
+     * Returns list of Inquiry Custom Fields.
      *
      * 
      * @return mixed
@@ -75,7 +75,7 @@ class TopBrokerContacts{
 
 
     /**
-     * Update Contact
+     * Update Inquiry
      *
      * @param  integer $id
      * @options mixed $options
@@ -89,7 +89,7 @@ class TopBrokerContacts{
 
 
     /**
-     * Create Contact
+     * Create Inquiry
      *
      * @options  mixed $options
      * @return mixed
@@ -101,7 +101,7 @@ class TopBrokerContacts{
     }
 
      /**
-     * Delete Contact
+     * Delete Inquiry
      * 
      * @param  integer $id
      * @options  mixed $options
@@ -113,33 +113,6 @@ class TopBrokerContacts{
         return $this->api->delete($this->buildPath($id), $options);
     }
 
-    /**
-     * Assign Estate to Contact
-     *
-     * @param  integer $id
-     * @options mixed $options
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function assignEstate($id, $options = [])
-    {
-        if(!(int)$options['estate_id']){
-            throw new Exception("estate_id must be provided as ['estate_id' => 1234]");
-        }
-        return $this->api->put($this->buildPath($id . '/assign_estate/' . $options['estate_id'] ), []);
-    }
-
-    /**
-     * Returns assigned Estate List to Contact
-     *
-     * @param  integer $id
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function getAssignedEstateList($id, $options = [])
-    {
-        return $this->api->get($this->buildPath($id. '/assigned_estates'), $options);
-    }
 
      /**
      * Assign Contact to Contact
@@ -169,8 +142,10 @@ class TopBrokerContacts{
         return $this->api->get($this->buildPath($id. '/assigned_contacts'), $options);
     }
 
+
+   
     /**
-     * Change Owner (User) of Contact
+     * Change Owner (User) of Inquiry
      *
      * @param  integer $id
      * @options mixed $options

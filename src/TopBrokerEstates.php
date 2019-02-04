@@ -96,7 +96,7 @@ class TopBrokerEstates{
     }
 
      /**
-     * Assign Estate to Contact
+     * Assign Estate to Estate
      *
      * @param  integer $id
      * @options mixed $options
@@ -124,7 +124,7 @@ class TopBrokerEstates{
     }
 
      /**
-     * Assign Contact to Contact
+     * Assign Contact to Estate
      *
      * @param  integer $id
      * @options mixed $options
@@ -152,7 +152,7 @@ class TopBrokerEstates{
     }
 
     /**
-     * Change Owner (User) of Contact
+     * Change Owner (User) of Estate
      *
      * @param  integer $id
      * @options mixed $options
@@ -165,6 +165,23 @@ class TopBrokerEstates{
             throw new Exception("user_id must be provided as ['user_id' => 1234]");
         }
         return $this->api->put($this->buildPath($id . '/change_owner/' . $options['user_id'] ), []);
+    }
+
+    /**
+     * Change Privacy of Estate
+     *
+     * @param  integer $id
+     * @options mixed $options
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function changePrivacy($id, $options = [])
+    {
+
+        if(!in_array($options['privacy_level'], ['public', 'shared', 'private'])){
+            throw new Exception("privacy_level must be one of: 'public', 'shared', 'private'");
+        }
+        return $this->api->put($this->buildPath($id . '/change_privacy'), $options);
     }
 
 

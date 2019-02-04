@@ -24,7 +24,10 @@ $topbroker->contacts->getList([]);
 $topbroker->contacts->getList(['user_id' => 123]);
 
 /** Get Contact List By Custom Field */
-$topbroker->contacts->getList(['custom_fields' => ['c_f_c_company_name' => 'Company XYZ', 'c_f_c_company_size' => '5-10']]);
+$topbroker->contacts->getList(['custom_fields' => [
+  'c_f_c_company_name' => 'Company XYZ', 
+  'c_f_c_company_size' => '5-10']
+  ]);
 
 /** Get Contact Count By User ID */
 $topbroker->contacts->getCount(['user_id' => 123]);
@@ -33,13 +36,22 @@ $topbroker->contacts->getCount(['user_id' => 123]);
 $topbroker->contacts->getCustomFields([]);
 
 /** Create a Contact */
-$topbroker->contacts->createItem(['contact_type' => 'physical_person', 'name' => 'John Doe','user_id' => 123, 'custom_fields' => ['c_f_c_company_name' => 'Company XYZ', 'c_f_c_company_size' => '5-10']]);
+$topbroker->contacts->createItem([
+  'contact_type' => 'physical_person', 
+  'name' => 'John Doe','user_id' => 123, 
+  'custom_fields' => [
+    'c_f_c_company_name' => 'Company XYZ', 
+    'c_f_c_company_size' => '5-10']
+    ]);
 
 /** Get Contact by ID */
 $topbroker->contacts->getItem(12345);
 
 /** Update Contact */
-$topbroker->contacts->updateItem(12345, ['name' => 'Johnny NewName', 'custom_fields' => ['c_f_c_company_name' => 'Company ABC']]);
+$topbroker->contacts->updateItem(12345, [
+  'name' => 'Johnny NewName', 
+  'custom_fields' => ['c_f_c_company_name' => 'Company ABC']
+  ]);
 
 /** Assign Estate to Contact */
 $topbroker->contacts->assignEstate(12345, ['estate_id' => 2928]);
@@ -56,5 +68,7 @@ $topbroker->contacts->getAssignedContactList(12345);
 /** Change Contact Owner */
 $topbroker->contacts->changeOwner(12345, ['user_id' => 1]);
 
-/** Delete Contact (soft-delete, record will be stored in trashbin where users will be able to recovery records) */
+/** Delete Contact (soft-delete, 
+ * record will be stored in Settings->Trashbin where users 
+ * will be able to recovery records) */
 $topbroker->contacts->deleteItem(12345);

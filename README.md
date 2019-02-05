@@ -6,7 +6,7 @@ PHP bindings to the TopBroker API
 
 This library supports PHP 7.1 and later
 
-## Clients
+## Usage
 Initialize your client using your access token:
 
 ```php
@@ -129,6 +129,60 @@ where users will be able to recovery records
 ```php
 $topbroker->estates->deleteItem(12345);
 ```
+
+
+## Locations
+Various location based records related directly to Estate and Inquiry records.
+Also can be used in Custom Fields in any record.
+
+Location record hierarchy:
+Municipality -> City -> Block (District) -> Street
+
+### Municipalities
+<https://app.topbroker.lt/api-docs/#/municipalities/getMunicipalities>
+```php
+$topbroker->locations->getMunicipalities([]);
+```
+
+### Cities
+<https://app.topbroker.lt/api-docs/#/cities/getCities>
+```php
+/** List of cities located in specific municipality */
+$topbroker->locations->getCities(['municipality_id' => 123]);
+```
+
+### Blocks (Districts)
+<https://app.topbroker.lt/api-docs/#/blocks/getBlocks>
+```php
+/** List of districts located in specific city */
+$topbroker->locations->getBlocks(['city_id' => 123]);
+```
+
+### Streets
+<https://app.topbroker.lt/api-docs/#/streets/getStreets>
+```php
+/** List of street located in specific city, containing Flat type estates and minimum price 100K */
+$topbroker->locations->getStreets([
+  'city_id' => 123, 'for_sale ' => true, 
+  'price_to' => 100000, 'estate_type' => ['flat']
+  ]);
+```
+
+### Locations
+Location is flattened hierarchy records of Municipality, City, Block and Street.
+Mainly used in Inquiry records. Also is used in Custom Fields 'location' type records values
+
+<https://app.topbroker.lt/api-docs/#/locations/getLocations>
+```php
+$topbroker->locations->getList([]);
+```
+
+### Location Item by ID
+<https://app.topbroker.lt/api-docs/#/locations/getLocation>
+```php
+$topbroker->locations->getItem(1234);
+```
+
 
 ## Contacts
 

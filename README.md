@@ -17,7 +17,6 @@ $topbroker = new TopBrokerApi('<insert_api_username_token_here>', '<insert_api_p
 ## Estates
 
 ### Estate listing
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/getEstates>
 
 ```php
@@ -39,21 +38,18 @@ $topbroker->estates->getList(['custom_fields' => [
 ```
 
 ### Get Estate Count By User ID
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/countEstate>
 ```php
 $topbroker->estates->getCount(['user_id' => 123]);
 ```
 
 ### Get All available Estates Custom Fields 
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/getEstateCustomFields>
 ```php
 $topbroker->estates->getCustomFields([]);
 ```
 
 ### Get Attributes for specific Estate Type
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/getEstateCustomFields>
 ```php
 $topbroker->estates->getAttributes('commercial');
@@ -63,7 +59,6 @@ $topbroker->estates->getAttributes('house');
 ```
 
 ### Create a Estate
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/createEstates>
 ```php
 $topbroker->estates->createItem([
@@ -76,14 +71,12 @@ $topbroker->estates->createItem([
 ```
 
 ### Get Estate by ID
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/getEstate>
 ```php
 $topbroker->estates->getItem(12345);
 ```
 
 ### Update Estate
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/updateEstates>
 ```php
 $topbroker->estates->updateItem(12345, [
@@ -93,42 +86,36 @@ $topbroker->estates->updateItem(12345, [
 ```
 
 ### Assign Estate to Estate 
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/assignEstateToEstate>
 ```php
 $topbroker->estates->assignEstate(12345, ['estate_id' => 2928]);
 ```
 
 ### Get Assigned Estate List
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/listAssignedEstates>
 ```php
 $topbroker->estates->getAssignedEstateList(12345);
 ```
 
 ### Assign Contact to Estate
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/assignContactToEstate>
 ```php
 $topbroker->estates->assignContact(12345, ['contact_id' => 3453]);
 ```
 
 ### Get Assigned Contact List
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/listAssignedContacts>
 ```php
 $topbroker->estates->getAssignedContactList(12345);
 ```
 
 ### Change Estate Privacy
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/changePrivacy>
 ```php
 $topbroker->estates->changePrivacy(12345, ['privacy_level' => 'public']);
 ```
 
 ### Change Estate Owner
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/changeOwner>
 ```php
 $topbroker->estates->changeOwner(12345, ['user_id' => 1]);
@@ -138,15 +125,16 @@ $topbroker->estates->changeOwner(12345, ['user_id' => 1]);
 soft-delete, record will be stored in Settings->Trashbin 
 where users will be able to recovery records
 
-List of all available params:
 <https://app.topbroker.lt/api-docs/#/estates/deleteEstate>
 ```php
 $topbroker->estates->deleteItem(12345);
 ```
 
 ## Contacts
-```php
 
+### Get Contact List
+<https://app.topbroker.lt/api-docs/#/contacts/getContacts>
+```php
 /** Get Contact List */
 $topbroker->contacts->getList([]);
 
@@ -158,14 +146,23 @@ $topbroker->contacts->getList(['custom_fields' => [
   'c_f_c_company_name' => 'Company XYZ', 
   'c_f_c_company_size' => '5-10']
   ]);
+```
 
-/** Get Contact Count By User ID */
+### Count Contacts By User ID
+<https://app.topbroker.lt/api-docs/#/contacts/countContacts>
+```php
 $topbroker->contacts->getCount(['user_id' => 123]);
+```
 
-/** Get Contact Count By User ID */
+### Contact Custom Field list
+<https://app.topbroker.lt/api-docs/#/contacts/getEstateCustomFields>
+```php
 $topbroker->contacts->getCustomFields([]);
+```
 
-/** Create a Contact */
+### Create a Contact 
+<https://app.topbroker.lt/api-docs/#/contacts/createContact>
+```php
 $topbroker->contacts->createItem([
   'contact_type' => 'physical_person', 
   'name' => 'John Doe','user_id' => 123, 
@@ -173,32 +170,58 @@ $topbroker->contacts->createItem([
     'c_f_c_company_name' => 'Company XYZ', 
     'c_f_c_company_size' => '5-10']
     ]);
+```
 
-/** Get Contact by ID */
+### Get Contact by ID
+<https://app.topbroker.lt/api-docs/#/contacts/getContact>
+```php
 $topbroker->contacts->getItem(12345);
+```
 
-/** Update Contact */
+### Update Contact 
+<https://app.topbroker.lt/api-docs/#/contacts/updateContact>
+```php
 $topbroker->contacts->updateItem(12345, [
   'name' => 'Johnny NewName', 
   'custom_fields' => ['c_f_c_company_name' => 'Company ABC']
   ]);
+```
 
-/** Assign Estate to Contact */
+### Assign Estate to Contact
+<https://app.topbroker.lt/api-docs/#/contacts/assignEstateToContact>
+```php
 $topbroker->contacts->assignEstate(12345, ['estate_id' => 2928]);
+```
 
-/** Get Assigned Estate List */
+### Get Assigned Estate List 
+<https://app.topbroker.lt/api-docs/#/contacts/listAssignedEstates>
+```php
 $topbroker->contacts->getAssignedEstateList(12345);
+```
 
-/** Assign Contact to Contact */
+### Assign Contact to Contact
+<https://app.topbroker.lt/api-docs/#/contacts/assignContactToContact>
+```php
 $topbroker->contacts->assignContact(12345, ['contact_id' => 3453]);
+```
 
-/** Get Assigned Contact List */
+### Get Assigned Contact List 
+<https://app.topbroker.lt/api-docs/#/contacts/listAssignedContacts>
+```php
 $topbroker->contacts->getAssignedContactList(12345);
+```
 
-/** Change Contact Owner */
+### Change Contact Owner
+<https://app.topbroker.lt/api-docs/#/contacts/changeOwner>
+```php
 $topbroker->contacts->changeOwner(12345, ['user_id' => 1]);
+```
 
-/** Delete Contact (soft-delete, 
- * record will be stored in Settings->Trashbin where users 
- * will be able to recovery records) */
+### Delete Contact
+soft-delete, record will be stored in Settings->Trashbin 
+where users will be able to recovery records
+
+<https://app.topbroker.lt/api-docs/#/contacts/deleteContact>
+```php
 $topbroker->contacts->deleteItem(12345);
+```

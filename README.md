@@ -26,8 +26,8 @@ $topbroker->estates->getList([]);
 /** Get Estate List Flat and Houses, 
  * Minimum 50 sq. m area, sort by price from highest to lowest  */
 $topbroker->estates->getList([
-  'estate_type' => ['house', 'flat'], '
-  area_min' => 50, 
+  'estate_type' => ['house', 'flat'], 
+  'area_min' => 50, 
   'sort_by' => 'price', 'sort_to' => 'desc',
   'per_page' => 10, 'page' => 1 ]);
 
@@ -271,6 +271,12 @@ $topbroker->contacts->getAssignedContactList(12345);
 $topbroker->contacts->changeOwner(12345, ['user_id' => 1]);
 ```
 
+### Change Contact Privacy
+<https://app.topbroker.lt/api-docs/#/contacts/changePrivacy>
+```php
+$topbroker->contacts->changePrivacy(12345, ['privacy_level' => 'shared', 'user_ids' => [12, 34, 42]]);
+```
+
 ### Delete Contact
 soft-delete, record will be stored in Settings->Trashbin 
 where users will be able to recovery records
@@ -278,4 +284,93 @@ where users will be able to recovery records
 <https://app.topbroker.lt/api-docs/#/contacts/deleteContact>
 ```php
 $topbroker->contacts->deleteItem(12345);
+```
+
+## Inquiries
+
+### Get Inquiry List
+<https://app.topbroker.lt/api-docs/#/inquiries/getInquiries>
+```php
+/** Get Contact List */
+$topbroker->inquiries->getList([]);
+
+/** Get Contact List By User ID */
+$topbroker->inquiries->getList(['user_id' => 123]);
+
+/** Get Contact List By Custom Field */
+$topbroker->inquiries->getList(['custom_fields' => [
+  'c_f_i_special_needs' => 'Disco ball']
+  ]);
+```
+
+### Count Inquiries
+<https://app.topbroker.lt/api-docs/#/inquiries/countInquiry>
+```php
+$topbroker->inquiries->getCount([]);
+```
+
+### Inquiry Custom Field list
+<https://app.topbroker.lt/api-docs/#/inquiries/getInquiriesCustomFields>
+```php
+$topbroker->inquiries->getCustomFields([]);
+```
+
+### Create a Inquiry 
+<https://app.topbroker.lt/api-docs/#/inquiries/createInquiry>
+```php
+$topbroker->inquiries->createItem([
+  'estate_type' => 'house', 
+  'title' => 'Hub','user_id' => 123, 
+  'custom_fields' => [
+    'c_f_i_special_needs' => ['Disco ball', 'Unicorn'], 
+    'c_f_c_company_size' => '1-5']
+    ]);
+```
+
+### Get Inquiry by ID
+<https://app.topbroker.lt/api-docs/#/inquiries/getV4InquiriesId>
+```php
+$topbroker->inquiries->getItem(12345);
+```
+
+### Update Inquiry 
+<https://app.topbroker.lt/api-docs/#/inquiries/updateInquiry>
+```php
+$topbroker->inquiries->updateItem(12345, [
+  'title' => 'Dev Hub', 
+  'custom_fields' => ['c_f_c_company_name' => 'Startup XYZ']
+  ]);
+```
+
+### Assign Contact to Inquiry
+<https://app.topbroker.lt/api-docs/#/inquiries/assignContactToInquiry>
+```php
+$topbroker->inquiries->assignContact(12345, ['contact_id' => 3453]);
+```
+
+### Get Assigned Contact List 
+<https://app.topbroker.lt/api-docs/#/inquiries/listAssignedContacts>
+```php
+$topbroker->inquiries->getAssignedContactList(12345);
+```
+
+### Change Inquiry Owner
+<https://app.topbroker.lt/api-docs/#/inquiries/changeOwner>
+```php
+$topbroker->inquiries->changeOwner(12345, ['user_id' => 1]);
+```
+
+### Change Inquiry Privacy
+<https://app.topbroker.lt/api-docs/#/inquiries/changePrivacy>
+```php
+$topbroker->inquiries->changePrivacy(12345, ['privacy_level' => 'shared', 'user_ids' => [12, 34, 42]]);
+```
+
+### Delete Inquiry
+soft-delete, record will be stored in Settings->Trashbin 
+where users will be able to recovery records
+
+<https://app.topbroker.lt/api-docs/#/inquiries/deleteInquiry>
+```php
+$topbroker->inquiries->deleteItem(12345);
 ```

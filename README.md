@@ -8,6 +8,11 @@ PHP bindings to the TopBroker API
 ## Installation
 
 This library supports PHP 7.1 and later
+The recommended way to install is through [Composer](https://getcomposer.org):
+
+```sh
+composer require topbroker/topbroker-php php-http/guzzle6-adapter
+```
 
 ## Usage
 Initialize your client using your access token:

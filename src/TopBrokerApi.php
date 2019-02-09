@@ -47,6 +47,16 @@ class TopBrokerApi {
      */
     public $locations;
 
+    /**
+     * @var TopBrokerUsers $users
+     */
+    public $users;
+
+    /**
+     * @var TopBrokerDeals $deals
+     */
+    public $deals;
+
      /**
      * TopBroker API constructor.
      *
@@ -65,9 +75,8 @@ class TopBrokerApi {
         $this->locations = new TopBrokerLocations($this);
         $this->contacts = new TopBrokerContacts($this);
         $this->inquiries = new TopBrokerInquiries($this);
-
-
-        
+        $this->users = new TopBrokerUsers($this);
+        $this->deals = new TopBrokerDeals($this);
     }
 
     /**

@@ -1,5 +1,8 @@
-topbroker-php
- 
+<p align="center">
+    <img src="./frontend/images/logo.svg"
+        width="210">
+</p> 
+
 PHP bindings to the TopBroker API
 
 ## Installation
@@ -59,7 +62,7 @@ $topbroker->estates->getAttributes('house');
 ```
 
 ### Create a Estate
-<https://app.topbroker.lt/api-docs/#/estates/createEstates>
+<https://app.topbroker.lt/api-docs/#/estates/createEstate>
 ```php
 $topbroker->estates->createItem([
   'contact_type' => 'physical_person', 
@@ -77,7 +80,7 @@ $topbroker->estates->getItem(12345);
 ```
 
 ### Update Estate
-<https://app.topbroker.lt/api-docs/#/estates/updateEstates>
+<https://app.topbroker.lt/api-docs/#/estates/updateEstate>
 ```php
 $topbroker->estates->updateItem(12345, [
   'name' => 'Johnny NewName', 
@@ -92,7 +95,7 @@ $topbroker->estates->assignEstate(12345, ['estate_id' => 2928]);
 ```
 
 ### Get Assigned Estate List
-<https://app.topbroker.lt/api-docs/#/estates/listAssignedEstates>
+<https://app.topbroker.lt/api-docs/#/estates/listEstateAssignedEstates>
 ```php
 $topbroker->estates->getAssignedEstateList(12345);
 ```
@@ -104,19 +107,19 @@ $topbroker->estates->assignContact(12345, ['contact_id' => 3453]);
 ```
 
 ### Get Assigned Contact List
-<https://app.topbroker.lt/api-docs/#/estates/listAssignedContacts>
+<https://app.topbroker.lt/api-docs/#/estates/listEstateAssignedContacts>
 ```php
 $topbroker->estates->getAssignedContactList(12345);
 ```
 
 ### Change Estate Privacy
-<https://app.topbroker.lt/api-docs/#/estates/changePrivacy>
+<https://app.topbroker.lt/api-docs/#/estates/changeEstatePrivacy>
 ```php
 $topbroker->estates->changePrivacy(12345, ['privacy_level' => 'public']);
 ```
 
 ### Change Estate Owner
-<https://app.topbroker.lt/api-docs/#/estates/changeOwner>
+<https://app.topbroker.lt/api-docs/#/estates/changeEstateOwner>
 ```php
 $topbroker->estates->changeOwner(12345, ['user_id' => 1]);
 ```
@@ -209,7 +212,7 @@ $topbroker->contacts->getCount(['user_id' => 123]);
 ```
 
 ### Contact Custom Field list
-<https://app.topbroker.lt/api-docs/#/contacts/getEstateCustomFields>
+<https://app.topbroker.lt/api-docs/#/contacts/getContactCustomFields>
 ```php
 $topbroker->contacts->getCustomFields([]);
 ```
@@ -248,7 +251,7 @@ $topbroker->contacts->assignEstate(12345, ['estate_id' => 2928]);
 ```
 
 ### Get Assigned Estate List 
-<https://app.topbroker.lt/api-docs/#/contacts/listAssignedEstates>
+<https://app.topbroker.lt/api-docs/#/contacts/listContactAssignedEstates>
 ```php
 $topbroker->contacts->getAssignedEstateList(12345);
 ```
@@ -260,19 +263,19 @@ $topbroker->contacts->assignContact(12345, ['contact_id' => 3453]);
 ```
 
 ### Get Assigned Contact List 
-<https://app.topbroker.lt/api-docs/#/contacts/listAssignedContacts>
+<https://app.topbroker.lt/api-docs/#/contacts/listContactAssignedContacts>
 ```php
 $topbroker->contacts->getAssignedContactList(12345);
 ```
 
 ### Change Contact Owner
-<https://app.topbroker.lt/api-docs/#/contacts/changeOwner>
+<https://app.topbroker.lt/api-docs/#/contacts/changeContactOwner>
 ```php
 $topbroker->contacts->changeOwner(12345, ['user_id' => 1]);
 ```
 
 ### Change Contact Privacy
-<https://app.topbroker.lt/api-docs/#/contacts/changePrivacy>
+<https://app.topbroker.lt/api-docs/#/contacts/changeContactPrivacy>
 ```php
 $topbroker->contacts->changePrivacy(12345, ['privacy_level' => 'shared', 'user_ids' => [12, 34, 42]]);
 ```
@@ -328,7 +331,7 @@ $topbroker->inquiries->createItem([
 ```
 
 ### Get Inquiry by ID
-<https://app.topbroker.lt/api-docs/#/inquiries/getV4InquiriesId>
+<https://app.topbroker.lt/api-docs/#/inquiries/getInquiry>
 ```php
 $topbroker->inquiries->getItem(12345);
 ```
@@ -349,19 +352,19 @@ $topbroker->inquiries->assignContact(12345, ['contact_id' => 3453]);
 ```
 
 ### Get Assigned Contact List 
-<https://app.topbroker.lt/api-docs/#/inquiries/listAssignedContacts>
+<https://app.topbroker.lt/api-docs/#/inquiries/listInquiryAssignedContacts>
 ```php
 $topbroker->inquiries->getAssignedContactList(12345);
 ```
 
 ### Change Inquiry Owner
-<https://app.topbroker.lt/api-docs/#/inquiries/changeOwner>
+<https://app.topbroker.lt/api-docs/#/inquiries/changeInquiryOwner>
 ```php
 $topbroker->inquiries->changeOwner(12345, ['user_id' => 1]);
 ```
 
 ### Change Inquiry Privacy
-<https://app.topbroker.lt/api-docs/#/inquiries/changePrivacy>
+<https://app.topbroker.lt/api-docs/#/inquiries/changeInquiryPrivacy>
 ```php
 $topbroker->inquiries->changePrivacy(12345, ['privacy_level' => 'shared', 'user_ids' => [12, 34, 42]]);
 ```
@@ -373,4 +376,59 @@ where users will be able to recovery records
 <https://app.topbroker.lt/api-docs/#/inquiries/deleteInquiry>
 ```php
 $topbroker->inquiries->deleteItem(12345);
+```
+
+
+## Deals
+Solded/rented property Deals
+
+### Get Deal List
+<https://app.topbroker.lt/api-docs/#/deals/getDeals>
+```php
+$topbroker->deals->getList(['user_id' => 12345]);
+```
+
+### Get Deal by ID
+<https://app.topbroker.lt/api-docs/#/deals/getDeal>
+```php
+$topbroker->deals->getItem(12345);
+```
+
+### Count Deals
+<https://app.topbroker.lt/api-docs/#/deals/getDealsCount>
+```php
+$topbroker->deals->getCount(['estate_type' => ['flat']]);
+```
+
+### Average calculated Deals
+<https://app.topbroker.lt/api-docs/#/deals/getDealsAverage>
+```php
+$topbroker->deals->getAverage(['for_sale' => true]);
+```
+
+
+## Users
+
+### Get User List
+<https://app.topbroker.lt/api-docs/#/users/getUsers>
+```php
+$topbroker->users->getList(['custom_fields' => ['c_f_u_visible_in_homepage' => 'Yes']]);
+```
+
+### Get User by ID
+<https://app.topbroker.lt/api-docs/#/users/getUser>
+```php
+$topbroker->users->getItem(12345);
+```
+
+### Count Users
+<https://app.topbroker.lt/api-docs/#/users/countUsers>
+```php
+$topbroker->users->getCount([]);
+```
+
+### User Custom Field list
+<https://app.topbroker.lt/api-docs/#/users/getUsersCustomFields>
+```php
+$topbroker->users->getCustomFields([]);
 ```

@@ -41,7 +41,7 @@ $topbroker->estates->getList([
 
 /** Get Estate List By Custom Field */
 $topbroker->estates->getList(['custom_fields' => [
-  'c_f_e_zymos' => ['Naujiena', 'Top']]
+  'c_f_e_zymos' => ['Discounted', 'Top']]
   ]);
 ```
 
@@ -70,11 +70,19 @@ $topbroker->estates->getAttributes('house');
 <https://app.topbroker.lt/api-docs/#/estates/createEstate>
 ```php
 $topbroker->estates->createItem([
-  'contact_type' => 'physical_person', 
-  'name' => 'John Doe','user_id' => 123, 
+  'estate_type' => 'flat', 
+  'user_id' => 123, 
+  'municipality_id' => 461,
+  'city_id' => 1,
+  'block_id' => 1,
+  'street_id' => 22189,
+  'area' => 68.2,
+  'sale_price' => 125000,
+  'floor' => 2,
+  'floor_count' => 5,
+  'room_count' => 3,
   'custom_fields' => [
-    'c_f_c_company_name' => 'Company XYZ', 
-    'c_f_c_company_size' => '5-10']
+    'c_f_c_tags' => ['Good location']
     ]);
 ```
 

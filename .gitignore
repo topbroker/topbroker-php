@@ -6,3 +6,4 @@ composer.lock
 # Other
 /test
 /test/test.php
+.DS_Store

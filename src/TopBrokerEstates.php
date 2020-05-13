@@ -95,6 +95,30 @@ class TopBrokerEstates{
         return $this->api->get("estate_attributes/".$type, $options);
     }
 
+    /**
+     * Returns Estate Photos
+     *
+     * @param  integer $id
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getPhotos($id, $options = [])
+    {
+        return $this->api->get($this->buildPath($id. '/photos'), $options);
+    }
+
+    /**
+     * Returns Estate Media
+     *
+     * @param  integer $id
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getMedia($id, $options = [])
+    {
+        return $this->api->get($this->buildPath($id. '/media'), $options);
+    }
+
      /**
      * Assign Estate to Estate
      *

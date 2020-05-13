@@ -26,7 +26,7 @@ class TopBrokerApi {
     /**
      * @var array API available versions
      */
-    private $api_available_versions = ['v4', 'v5'];
+    private $api_available_versions = ['v5'];
 
     /**
      * @var string API crediantials

@@ -57,6 +57,12 @@ $topbroker->estates->getCount(['user_id' => 123]);
 $topbroker->estates->getCustomFields([]);
 ```
 
+### Get Estates Custom Views
+<https://app.topbroker.lt/api-docs/#/estates/getEstatesCustomViews>
+```php
+$topbroker->estates->getCustomViews([]);
+```
+
 ### Get Attributes for specific Estate Type
 <https://app.topbroker.lt/api-docs/#/estates/getEstateCustomFields>
 ```php

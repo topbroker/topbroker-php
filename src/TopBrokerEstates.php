@@ -119,6 +119,18 @@ class TopBrokerEstates{
         return $this->api->get($this->buildPath($id. '/media'), $options);
     }
 
+    /**
+     * Returns Estate Media
+     *
+     * @param  integer $id
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getCustomViews($options = [])
+    {
+        return $this->api->get($this->buildPath("custom_views"), $options);
+    }
+
      /**
      * Assign Estate to Estate
      *

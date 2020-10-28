@@ -62,6 +62,18 @@ class TopBrokerInquiries{
     }
 
     /**
+     * Returns list of Inquiry Statuses
+     *
+     * 
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getRecordStatuses($options = [])
+    {
+        return $this->api->get($this->buildPath("record_statuses"), $options);
+    }
+
+    /**
      * Returns full information by ID.
      *
      * @param  integer $id
@@ -112,37 +124,6 @@ class TopBrokerInquiries{
     {
         return $this->api->delete($this->buildPath($id), $options);
     }
-
-
-     /**
-     * Assign Contact to Contact
-     *
-     * @param  integer $id
-     * @options mixed $options
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function assignContact($id, $options = [])
-    {
-        if(!(int)$options['contact_id']){
-            throw new Exception("contact_id must be provided as ['contact_id' => 1234]");
-        }
-        return $this->api->put($this->buildPath($id . '/assign_contact/' . $options['contact_id'] ), []);
-    }
-
-    /**
-     * Returns assigned Contact List to Contact
-     *
-     * @param  integer $id
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function getAssignedContactList($id, $options = [])
-    {
-        return $this->api->get($this->buildPath($id. '/assigned_contacts'), $options);
-    }
-
-
    
     /**
      * Change Owner (User) of Inquiry

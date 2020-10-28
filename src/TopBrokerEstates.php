@@ -131,60 +131,16 @@ class TopBrokerEstates{
         return $this->api->get($this->buildPath("custom_views"), $options);
     }
 
-     /**
-     * Assign Estate to Estate
-     *
-     * @param  integer $id
-     * @options mixed $options
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function assignEstate($id, $options = [])
-    {
-        if(!(int)$options['estate_id']){
-            throw new Exception("estate_id must be provided as ['estate_id' => 1234]");
-        }
-        return $this->api->put($this->buildPath($id . '/assign_estate/' . $options['estate_id'] ), []);
-    }
-
     /**
-     * Returns assigned Estate List to Contact
+     * Returns list of Estate Statuses
      *
-     * @param  integer $id
+     * 
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getAssignedEstateList($id, $options = [])
+    public function getRecordStatuses($options = [])
     {
-        return $this->api->get($this->buildPath($id. '/assigned_estates'), $options);
-    }
-
-     /**
-     * Assign Contact to Estate
-     *
-     * @param  integer $id
-     * @options mixed $options
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function assignContact($id, $options = [])
-    {
-        if(!(int)$options['contact_id']){
-            throw new Exception("contact_id must be provided as ['contact_id' => 1234]");
-        }
-        return $this->api->put($this->buildPath($id . '/assign_contact/' . $options['contact_id'] ), []);
-    }
-
-    /**
-     * Returns assigned Contact List to Contact
-     *
-     * @param  integer $id
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function getAssignedContactList($id, $options = [])
-    {
-        return $this->api->get($this->buildPath($id. '/assigned_contacts'), $options);
+        return $this->api->get($this->buildPath("record_statuses"), $options);
     }
 
     /**

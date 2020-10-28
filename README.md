@@ -63,6 +63,13 @@ $topbroker->estates->getCustomFields([]);
 $topbroker->estates->getCustomViews([]);
 ```
 
+### Get Estates Record Statuses
+<https://app.topbroker.lt/api-docs/#/estates/getEstateRecordStatuses>
+```php
+$topbroker->estates->getRecordStatuses([]);
+```
+
+
 ### Get Attributes for specific Estate Type
 <https://app.topbroker.lt/api-docs/#/estates/getEstateCustomFields>
 ```php
@@ -105,30 +112,6 @@ $topbroker->estates->updateItem(12345, [
   'name' => 'Johnny NewName', 
   'custom_fields' => ['c_f_c_company_name' => 'Company ABC']
   ]);
-```
-
-### Assign Estate to Estate 
-<https://app.topbroker.lt/api-docs/#/estates/assignEstateToEstate>
-```php
-$topbroker->estates->assignEstate(12345, ['estate_id' => 2928]);
-```
-
-### Get Assigned Estate List
-<https://app.topbroker.lt/api-docs/#/estates/listEstateAssignedEstates>
-```php
-$topbroker->estates->getAssignedEstateList(12345);
-```
-
-### Assign Contact to Estate
-<https://app.topbroker.lt/api-docs/#/estates/assignContactToEstate>
-```php
-$topbroker->estates->assignContact(12345, ['contact_id' => 3453]);
-```
-
-### Get Assigned Contact List
-<https://app.topbroker.lt/api-docs/#/estates/listEstateAssignedContacts>
-```php
-$topbroker->estates->getAssignedContactList(12345);
 ```
 
 ### Change Estate Privacy
@@ -236,12 +219,18 @@ $topbroker->contacts->getCount(['user_id' => 123]);
 $topbroker->contacts->getCustomFields([]);
 ```
 
+### Get Contact Record Statuses
+<https://app.topbroker.lt/api-docs/#/contacts/getEstateRecordStatuses>
+```php
+$topbroker->contacts->getRecordStatuses([]);
+```
+
 ### Create a Contact 
 <https://app.topbroker.lt/api-docs/#/contacts/createContact>
 ```php
 $topbroker->contacts->createItem([
-  'contact_type' => 'physical_person', 
-  'name' => 'John Doe','user_id' => 123, 
+  'name' => 'John Doe',
+  'user_id' => 123, 
   'custom_fields' => [
     'c_f_c_company_name' => 'Company XYZ', 
     'c_f_c_company_size' => '5-10']
@@ -263,29 +252,6 @@ $topbroker->contacts->updateItem(12345, [
   ]);
 ```
 
-### Assign Estate to Contact
-<https://app.topbroker.lt/api-docs/#/contacts/assignEstateToContact>
-```php
-$topbroker->contacts->assignEstate(12345, ['estate_id' => 2928]);
-```
-
-### Get Assigned Estate List 
-<https://app.topbroker.lt/api-docs/#/contacts/listContactAssignedEstates>
-```php
-$topbroker->contacts->getAssignedEstateList(12345);
-```
-
-### Assign Contact to Contact
-<https://app.topbroker.lt/api-docs/#/contacts/assignContactToContact>
-```php
-$topbroker->contacts->assignContact(12345, ['contact_id' => 3453]);
-```
-
-### Get Assigned Contact List 
-<https://app.topbroker.lt/api-docs/#/contacts/listContactAssignedContacts>
-```php
-$topbroker->contacts->getAssignedContactList(12345);
-```
 
 ### Change Contact Owner
 <https://app.topbroker.lt/api-docs/#/contacts/changeContactOwner>
@@ -337,6 +303,12 @@ $topbroker->inquiries->getCount([]);
 $topbroker->inquiries->getCustomFields([]);
 ```
 
+### Get Inquiry Record Statuses
+<https://app.topbroker.lt/api-docs/#/inquiries/getEstateRecordStatuses>
+```php
+$topbroker->inquiries->getRecordStatuses([]);
+```
+
 ### Create a Inquiry 
 <https://app.topbroker.lt/api-docs/#/inquiries/createInquiry>
 ```php
@@ -362,18 +334,6 @@ $topbroker->inquiries->updateItem(12345, [
   'title' => 'Dev Hub', 
   'custom_fields' => ['c_f_c_company_name' => 'Startup XYZ']
   ]);
-```
-
-### Assign Contact to Inquiry
-<https://app.topbroker.lt/api-docs/#/inquiries/assignContactToInquiry>
-```php
-$topbroker->inquiries->assignContact(12345, ['contact_id' => 3453]);
-```
-
-### Get Assigned Contact List 
-<https://app.topbroker.lt/api-docs/#/inquiries/listInquiryAssignedContacts>
-```php
-$topbroker->inquiries->getAssignedContactList(12345);
 ```
 
 ### Change Inquiry Owner

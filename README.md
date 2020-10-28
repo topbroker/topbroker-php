@@ -220,7 +220,7 @@ $topbroker->contacts->getCustomFields([]);
 ```
 
 ### Get Contact Record Statuses
-<https://app.topbroker.lt/api-docs/#/contacts/getEstateRecordStatuses>
+<https://app.topbroker.lt/api-docs/#/contacts/getContactRecordStatuses>
 ```php
 $topbroker->contacts->getRecordStatuses([]);
 ```
@@ -304,7 +304,7 @@ $topbroker->inquiries->getCustomFields([]);
 ```
 
 ### Get Inquiry Record Statuses
-<https://app.topbroker.lt/api-docs/#/inquiries/getEstateRecordStatuses>
+<https://app.topbroker.lt/api-docs/#/inquiries/getInquiryRecordStatuses>
 ```php
 $topbroker->inquiries->getRecordStatuses([]);
 ```

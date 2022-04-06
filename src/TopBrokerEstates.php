@@ -120,6 +120,19 @@ class TopBrokerEstates{
     }
 
     /**
+     * Returns Estate Nearby Places
+     *
+     * @param  integer $id
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getNearbyPlaces($id, $options = [])
+    {
+        return $this->api->get($this->buildPath($id. '/nearby_places'), $options);
+    }
+
+
+    /**
      * Returns Estate Media
      *
      * @param  integer $id

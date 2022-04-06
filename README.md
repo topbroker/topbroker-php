@@ -114,6 +114,24 @@ $topbroker->estates->updateItem(12345, [
   ]);
 ```
 
+### Get Estate Photos
+<https://app.topbroker.lt/api-docs/#/estates/getEstatePhotos>
+```php
+$topbroker->estates->getPhotos(12345);
+```
+
+### Get Estate Media (Video && 3D Tours)
+<https://app.topbroker.lt/api-docs/#/estates/getEstateMedia>
+```php
+$topbroker->estates->getMedia(12345);
+```
+
+### Get Estate Nearby Places
+<https://app.topbroker.lt/api-docs/#/estates/getEstateNearbyPlaces>
+```php
+$topbroker->estates->getNearbyPlaces(12345);
+```
+
 ### Change Estate Privacy
 <https://app.topbroker.lt/api-docs/#/estates/changeEstatePrivacy>
 ```php

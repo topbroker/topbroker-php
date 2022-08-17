@@ -375,6 +375,32 @@ where users will be able to recovery records
 $topbroker->inquiries->deleteItem(12345);
 ```
 
+## Finances
+Using finances, users can track income and expenditure associated with properties and clients.
+
+### Return filtered finances list
+<https://app.topbroker.lt/api-docs/#/finances/getFinances>
+```php
+$topbroker->finances->getList(['user_id' => 12345]);
+```
+
+### Return filtered finances records sum
+<https://app.topbroker.lt/api-docs/#/finances/getFinancesSum>
+```php
+$topbroker->finances->getSum(['user_id' => 12345]);
+```
+
+### Returns finance income groups
+<https://app.topbroker.lt/api-docs/#/finances/getFinanceGroupIncome>
+```php
+$topbroker->finances->getIncomeGroups();
+```
+### Returns finance expenses groups
+<https://app.topbroker.lt/api-docs/#/finances/getFinanceGroupExpenses>
+```php
+$topbroker->finances->getExpensesGroups();
+```
+
 
 ## Deals
 Solded/rented property Deals
@@ -382,7 +408,7 @@ Solded/rented property Deals
 ### Get Deal List
 <https://app.topbroker.lt/api-docs/#/deals/getDeals>
 ```php
-$topbroker->deals->getList(['user_id' => 12345]);
+$topbroker->deals->getList(['user_id' => 12345, 'finance_operation_type' => 'income']);
 ```
 
 ### Get Deal by ID
